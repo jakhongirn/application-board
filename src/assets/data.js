@@ -26,3 +26,28 @@ export const cardContainers = [
             "name": "Удаленные"
         }
     ]
+
+export const cardData  = [
+    {
+        "id": 1,
+        "title": "UI/UX дизайнер",
+        "department": "Отдел разработки мобильного...",
+        "status": "В приоритете",
+        "people": "3",
+        "docs": "255",
+        "recName": "Алексей Щербаков",
+        "recImageName": "sherbakov.png"
+
+    },
+    {
+        "id": 2,
+        "title": "Маркетолог",
+        "department": "Отдел маркетинга",
+        "status": "В приоритете",
+        "people": "2",
+        "docs": "182",
+        "recName": "Floyd Miles",
+        "recImageName": "miles.png"
+    },
+    
+]
