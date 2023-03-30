@@ -14,7 +14,7 @@ const Card = ({data, handleDragging }) => {
       draggable="true"
       onDragStart={handleDragStart} 
       onDragEnd={handleDragEnd}
-      className='bg-white m-4 p-4 rounded-md shadow-md' 
+      className='bg-white m-4 p-4 rounded-md shadow-md hover:cursor-pointer' 
       >
         <div className='grid grid-cols-12'>
         <div className='col-span-11'>

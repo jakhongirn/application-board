@@ -3,6 +3,7 @@ import { cardContainers, cardData } from '../assets/data';
 import CardContainer from './CardContainer';
 
 const DragDropArea = () => {
+  const totalCards = cardData.length
 
   const [isDragging, setIsDragging] = useState(false)
 
@@ -24,6 +25,11 @@ const DragDropArea = () => {
 
   return (
     <>
+    <div className="flex py-4">
+    <h2 className="text-2xl font-semibold">Заявки &bull; {totalCards}</h2>
+  </div>
+    <div className='inline-flex gap-x-8'>
+    
             {cardContainers.map(cardContainer => 
               (
                 <CardContainer 
@@ -35,10 +41,12 @@ const DragDropArea = () => {
                     isDragging={isDragging}
                     handleDragging={handleDragging}
                     handleUpdateList={handleUpdateList}
+                    listItems={listItems}
                 />
               )
             )}
 
+    </div>
     </>
   )
 }
