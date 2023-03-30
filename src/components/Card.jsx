@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Card = ({data, handleDragging }) => {
+const Card = ({data, handleDragging, isDragging }) => {
 
   const handleDragStart = (event) => {
     event.dataTransfer.setData("Text", `${data.id}`)
@@ -13,8 +13,9 @@ const Card = ({data, handleDragging }) => {
     <div 
       draggable="true"
       onDragStart={handleDragStart} 
+
       onDragEnd={handleDragEnd}
-      className='bg-white m-4 p-4 rounded-md shadow-md hover:cursor-pointer' 
+      className={`bg-white m-4 p-4 rounded-md shadow-md hover:cursor-pointer active:bg-gray-300`} 
       >
         <div className='grid grid-cols-12'>
         <div className='col-span-11'>

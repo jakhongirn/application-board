@@ -5,5 +5,10 @@
 
 body {
     overflow: scroll;
-    box-sizing: border-box;   
+    box-sizing: border-box;
+       
 }
+
+.bg-black {
+    background-color: black;
+} 
