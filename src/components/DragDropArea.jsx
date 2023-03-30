@@ -1,7 +1,6 @@
 import React from 'react';
 import { cardContainers, cardData } from '../assets/data';
 import CardContainer from './CardContainer';
-import Card from './Card';
 
 const DragDropArea = () => {
   
@@ -11,7 +10,8 @@ const DragDropArea = () => {
               (
                 <CardContainer 
                     key={cardContainer.id} 
-                    type={cardContainer.name} 
+                    name={cardContainer.name} 
+                    type={cardContainer.type}
                     data={cardData} 
                 />
               )
