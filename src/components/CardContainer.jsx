@@ -1,25 +1,33 @@
 import React from 'react'
 import Card from './Card'
 
-const CardContainer = ({ children, name, type, data }) => {
+const CardContainer = ({name, type, data, isDragging, handleDragging, handleUpdateList }) => {
+  
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  }
+  const handleDrop = (e) => {
+    const id =+ e.dataTransfer.getData('text')
+    handleUpdateList(id, type)
+    handleDragging(false)
+  }
+
   return (
-    <div className="border border-1 border-[#C9D2CE] rounded-md w-96">
+    <div 
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+      className="border border-1 border-[#C9D2CE] rounded-md w-96">
       <div className="bg-[#F2FAF6] border-b  rounded-t-md  border-[#C9D2CE]  p-2">
         <h3 className="font-semibold text-lg">{name} &bull; 4</h3>
       </div>
 
       {data.map(
-        (card) =>
-          type === card.status && (
+        (cardData) =>
+          type === cardData.status && (
             <Card
-              key={card.id}
-              title={card.title}
-              department={card.department}
-              status={card.status}
-              people={card.people}
-              docs={card.docs}
-              recName={card.recName}
-              recImageName={card.recImageName}
+              key={cardData.id}
+              data={cardData}
+              handleDragging={handleDragging}
             />
           ),
       )}
