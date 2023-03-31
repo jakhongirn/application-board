@@ -4,9 +4,7 @@
 
 
 body {
-    overflow: scroll;
-    box-sizing: border-box;
-       
+    overflow: scroll;       
 }
 
 .bg-black {

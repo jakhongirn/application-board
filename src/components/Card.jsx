@@ -1,21 +1,52 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 
-const Card = ({data, handleDragging, isDragging }) => {
+const Card = ({data, handleDragging, isDragging, setListItems, listItems }) => {
 
-  const handleDragStart = (event) => {
+  const dragItem = useRef();
+  const dragItemNode = useRef();
+
+
+  
+
+  const handleDragStart = (event, paramId) => {
+    console.log("Dragging start...")
     event.dataTransfer.setData("Text", `${data.id}`)
     handleDragging(true)
+
+    dragItem.current = paramId;
+    dragItemNode.current = event.target;
+    dragItemNode.current.addEventListener('dragend', handleDragEnd)
+
+    setTimeout(() => {
+      handleDragging(true);
+    }, 0)
   }
 
-  const handleDragEnd = () => handleDragging(false)
+  const handleDragEnd = () => {
+    console.log("Dragging end...")
+    handleDragging(false)
+    
+    dragItem.currentId = null;
+    dragItemNode.current.removeEventListener('dragend', handleDragEnd)
+    dragItemNode.current = null;
+  }
+
+  const getStyle = (cardId) => {
+    const currentId = dragItem.current;
+
+    if (cardId === currentId) {
+      return 'bg-gray-300';
+    }
+    return '';
+  }
 
   return (
     <div 
       draggable="true"
-      onDragStart={handleDragStart} 
-
-      onDragEnd={handleDragEnd}
-      className={`bg-white m-4 p-4 rounded-md shadow-md hover:cursor-pointer active:bg-gray-300`} 
+      onDragStart={(e) => {handleDragStart(e, data.id)}} 
+      
+      
+      className={`bg-white m-4 p-4 rounded-md shadow-md hover:cursor-pointer ${isDragging? getStyle(data.id): ''}`} 
       >
         <div className='grid grid-cols-12'>
         <div className='col-span-11'>
