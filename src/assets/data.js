@@ -38,7 +38,7 @@ export const cardData = [
     recName: "Алексей Щербаков",
     recImageName: "sherbakov.png",
   },
-  {
+  { 
     id: 2,
     status: "new",
     title: "Маркетолог",
@@ -50,6 +50,17 @@ export const cardData = [
     recImageName: "miles.png",
   },
   {
+    id: 5,
+    status: "current",
+    title: "Python Developer",
+    department: "Отдел маркетинга",
+    priority: "В приоритете",
+    people: "7",
+    docs: "197",
+    recName: "Devon Lane",
+    recImageName: "lane.png",
+  },
+  {
     id: 3,
     status: "current",
     title: "PHP Developer",
@@ -58,7 +69,7 @@ export const cardData = [
     people: "3",
     docs: "175",
     recName: "Kristin Watson",
-    recImageName: "miles.png",
+    recImageName: "watson.png",
   },
   {
     id: 4,
@@ -69,19 +80,9 @@ export const cardData = [
     people: "4",
     docs: "156",
     recName: "Jacob Jones",
-    recImageName: "miles.png",
+    recImageName: "jones.png",
   },
-  {
-    id: 5,
-    status: "current",
-    title: "Python Developer",
-    department: "Отдел маркетинга",
-    priority: "В приоритете",
-    people: "7",
-    docs: "197",
-    recName: "Devon Lane",
-    recImageName: "miles.png",
-  },
+  
   
   {
     id: 6,
@@ -92,7 +93,7 @@ export const cardData = [
     people: "3",
     docs: "195",
     recName: "Guy Hawkins",
-    recImageName: "miles.png",
+    recImageName: "hawkins.png",
   },
   {
     id: 7,
@@ -103,7 +104,7 @@ export const cardData = [
     people: "5",
     docs: "167",
     recName: "Annette Black",
-    recImageName: "miles.png",
+    recImageName: "black.png",
   },
   {
     id: 8,
@@ -114,7 +115,7 @@ export const cardData = [
     people: "4",
     docs: "128",
     recName: "Laswell Milan",
-    recImageName: "miles.png",
+    recImageName: "milan.png",
   },
   {
     id: 9,
@@ -180,7 +181,7 @@ export const cardData = [
     people: "4",
     docs: "156",
     recName: "Jacob Jones",
-    recImageName: "miles.png",
+    recImageName: "jones.png",
   },
   {
     id: 14,
@@ -191,6 +192,6 @@ export const cardData = [
     people: "8",
     docs: "345",
     recName: "Theresa Webb",
-    recImageName: "miles.png",
+    recImageName: "webb.png",
   },
 ];
