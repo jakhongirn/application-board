@@ -16,13 +16,17 @@ const DragDropArea = () => {
     
     if (card && card.status !== newStatus) {
       card.status = newStatus
+
+
       setListItems(prev => ([
-        
+        card,
         ...prev.filter(item => item.id !== id),
-        card
+        
       ]))
     }
   }  
+
+
 
   return (
     <>

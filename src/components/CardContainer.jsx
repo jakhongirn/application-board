@@ -20,7 +20,13 @@ const CardContainer = ({
     handleUpdateList(id, type)
     handleDragging(false)
   }
+  useEffect(() => {
+    
+    setListItems(data)
+  }, [setListItems, data])
+
   
+ 
 
   const cardsByStatus = cardData.filter((card) => card.status === type)
   const cardsLen = cardsByStatus.length
@@ -29,7 +35,7 @@ const CardContainer = ({
     <div
       onDragOver={handleDragOver}
       onDrop={handleDrop}
-      className={`border border-1 border-[#C9D2CE] rounded-md w-96 overflow-y-scroll  h-[600px]  ${
+      className={`border border-1 border-[#C9D2CE] rounded-md w-96 overflow-y-scroll h-[600px]  ${
         isDragging ? 'bg-gray-200 border-2 border-dashed' : ''
       }`}
     >

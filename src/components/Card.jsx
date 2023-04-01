@@ -1,20 +1,18 @@
-import React, {useRef, useEffect} from 'react'
+import React, {useRef, useState} from 'react'
 
 const Card = ({data, handleDragging, isDragging, setListItems, listItems }) => {
 
   const dragItem = useRef();
   const dragItemNode = useRef();
 
-
-  
-
   const handleDragStart = (event, paramId) => {
     console.log("Dragging start...")
-    event.dataTransfer.setData("Text", `${data.id}`)
+    event.dataTransfer.setData("text", `${data.id}`)
     handleDragging(true)
 
     dragItem.current = paramId;
     dragItemNode.current = event.target;
+    console.log(dragItemNode)
     dragItemNode.current.addEventListener('dragend', handleDragEnd)
 
     setTimeout(() => {
@@ -26,7 +24,7 @@ const Card = ({data, handleDragging, isDragging, setListItems, listItems }) => {
     console.log("Dragging end...")
     handleDragging(false)
     
-    dragItem.currentId = null;
+    dragItem.current = null;
     dragItemNode.current.removeEventListener('dragend', handleDragEnd)
     dragItemNode.current = null;
   }
@@ -35,7 +33,7 @@ const Card = ({data, handleDragging, isDragging, setListItems, listItems }) => {
     const currentId = dragItem.current;
 
     if (cardId === currentId) {
-      return 'bg-gray-300';
+      return '!bg-gray-300';
     }
     return '';
   }
@@ -44,10 +42,10 @@ const Card = ({data, handleDragging, isDragging, setListItems, listItems }) => {
     <div 
       draggable="true"
       onDragStart={(e) => {handleDragStart(e, data.id)}} 
-      
-      
-      className={`bg-white m-4 p-4 rounded-md shadow-md hover:cursor-pointer ${isDragging? getStyle(data.id): ''}`} 
+      className="px-2" 
       >
+        <div className={`border-[3px] rounded border-blue-500 m-2 invisible `} />
+        <div className={`bg-white p-4 rounded-md shadow-md hover:cursor-pointer ${isDragging ? getStyle(data.id) : ''  }`}>
         <div className='grid grid-cols-12'>
         <div className='col-span-11'>
           <h3 className='font-bold text-lg'>{data.title}</h3>
@@ -65,6 +63,7 @@ const Card = ({data, handleDragging, isDragging, setListItems, listItems }) => {
         </div>
         <div className=' justify-self-end'>
             <img src="assets/icons/three_dots.svg" alt="" />
+        </div>
         </div>
         </div>
     </div>
